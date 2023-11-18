@@ -1,7 +1,14 @@
 import React from 'react';
 
-const Users = () => {
-  return <h1>Users</h1>;
+const Example: React.FC = () => {
+  // Add your code here
+
+  return (
+    <div>
+      {/* Add your JSX here */}
+    </div>
+  );
 };
 
-export default Users;
+export default Example;
+

@@ -1,0 +1,14 @@
+.navbar {  // Block
+  background-color: #f0f0f0;
+  padding: 10px;
+
+  &__link {  // Element
+    margin-right: 10px;
+    text-decoration: none;
+    color: black;
+
+    &:hover {  // Modifier for the element's state
+      text-decoration: underline;
+    }
+  }
+}

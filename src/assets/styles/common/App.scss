@@ -1,0 +1,36 @@
+.App {
+  text-align: center;
+
+  &-logo { // This is BEM-like but in reality, logo is an element so it should be `__logo`
+    height: 40vmin;
+    pointer-events: none;
+
+    @media (prefers-reduced-motion: no-preference) {
+      animation: App-logo-spin infinite 20s linear;
+    }
+  }
+
+  &-header { // Same here, this should be `__header`
+    background-color: #282c34;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: calc(10px + 2vmin);
+    color: white;
+  }
+
+  &-link { // And here, `__link`
+    color: #61dafb;
+  }
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
