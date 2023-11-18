@@ -1,0 +1,1 @@
+// Hook for managing user authentication state and logic.
