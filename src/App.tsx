@@ -1,44 +1,26 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Navbar from './components/common/Navbar';
-import Home from './pages/Home';
-import Checkout from './pages/Checkout';
-import Feedback from './pages/Feedback';
-import Complaint from './pages/Complaint';
-import Login from './pages/Login';
-import Register from './pages/Register';
-import Profile from './pages/Profile';
-import RestaurantDashboard from './pages/RestaurantDashboard';
-import Menu from './pages/Menu';
-import CourierDashboard from './pages/CourierDashboard';
-import Order from './pages/Order';
-import OrderDetail from './pages/OrderDetail';
+import logo from './logo.svg';
+import './App.css';
 
-
-import Example from './pages/Example';
-
-const App = () => {
+function App() {
   return (
-    <Router>
-      <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/restaurant" element={<RestaurantDashboard />} />
-        <Route path="/menu" element={<Menu />} />
-        <Route path="/courier" element={<CourierDashboard />} />
-        <Route path="/checkout" element={<Checkout />} />
-        <Route path="/order" element={<Order />} />
-        <Route path="/orderdetail" element={<OrderDetail />} />
-        <Route path="/feedback" element={<Feedback />} />
-        <Route path="/complaint" element={<Complaint />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/register" element={<Register />} />
-        <Route path="/profile" element={<Profile />} />
-
-        <Route path="/example" element={<Example />} />
-      </Routes>
-    </Router>
+    <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        <p>
+          Edit <code>src/App.tsx</code> and save to reload.
+        </p>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Learn React
+        </a>
+      </header>
+    </div>
   );
-};
+}
 
 export default App;

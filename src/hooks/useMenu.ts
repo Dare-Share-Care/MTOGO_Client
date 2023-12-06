@@ -1,1 +1,0 @@
-// Hook for fetching and displaying restaurant menus.

@@ -1,1 +1,0 @@
-// The main layout that includes the Navbar and Footer and wraps around page content.

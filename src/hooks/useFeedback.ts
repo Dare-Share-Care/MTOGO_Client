@@ -1,1 +1,0 @@
-// Hook for submitting and managing feedback.
