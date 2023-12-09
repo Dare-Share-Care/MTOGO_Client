@@ -1,7 +1,8 @@
 import WebDriverSingleton from "../WebDriverSingleton";
 import { CONFIG } from "../config/ClientConfig";
-import { getPage } from "../utils/GeneralUtils";
-import { WebDriver, until } from "selenium-webdriver";
+import { clickElement, getPage } from "../utils/GeneralUtils";
+import { LogIn } from "../pages/LoginPage";
+import { By, WebDriver, until } from "selenium-webdriver";
 import {describe, expect, test} from '@jest/globals';
 
 
@@ -34,6 +35,11 @@ describe('Example', () =>
     test('Should have correct title', async () => 
     {
         expect(await driver.getTitle()).toEqual('React App');
+    });
+
+    test('Should log in successfully', async () => {
+        await LogIn(driver);
+        expect(await driver.wait(until.urlIs(CONFIG.baseUrl), 5000)).toEqual(true);
     });
 
 });
