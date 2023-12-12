@@ -2,11 +2,11 @@ import WebDriverSingleton from "../WebDriverSingleton";
 import { CONFIG } from "../config/ClientConfig";
 import { clickElement, getPage, getTextFromElement } from "../utils/GeneralUtils";
 import { LogIn } from "../pages/LoginPage";
-import { By, WebDriver, until } from "selenium-webdriver";
+import { WebDriver, until } from "selenium-webdriver";
 import {describe, expect, test} from '@jest/globals';
 
 
-describe('Example', () => 
+describe('Tests of the UI elements involved in placing an order', () => 
 {
     let driver: WebDriver;
     let url: string;

@@ -23,12 +23,11 @@ export const CONFIG: IConfig =
     {
         args: 
         [
-            '--headless=new',
-            'window-size=1920,1080',
+            '--headless=new'
         ],
         excludeSwitches: 
         [
-            'enable-automation',
+            'enable-automation'
         ],
         pageLoadStrategy: 'eager'
     },
@@ -38,3 +37,4 @@ export const CONFIG: IConfig =
         pageLoad: 2500
     }
 };
+

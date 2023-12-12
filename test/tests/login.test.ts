@@ -6,7 +6,7 @@ import { By, WebDriver, until } from "selenium-webdriver";
 import {describe, expect, test} from '@jest/globals';
 
 
-describe('Example', () => 
+describe('Login', () => 
 {
     let driver: WebDriver;
     let url: string;
