@@ -1,58 +1,62 @@
-// orderService.ts
 import axios from "axios";
 import authService from "./authService";
+import { IOrderData } from '../interfaces/IOrderData';
+import { ICreateOrderResponse } from '../interfaces/ICreateOrderResponse';
+import { IOrderToClaimViewModel } from '../interfaces/IOrderToClaimViewModel';
 
-const URL = 'http://localhost:5157';
+const ORDER_SERVICE_URL = 'http://localhost:5157'; // Orders.Web
+const COURIER_SERVICE_URL = 'http://localhost:5041'; // Courier.Web
 
-interface OrderData 
-{
-    // Define the properties of OrderData here
-}
-
-interface CreateOrderResponse 
-{
-    id: number; // Assuming the response includes an 'id' field.
-    // Define other properties of the response here
-}
-
-const api = () => 
-{
-    const createOrder = async (orderData: OrderData): Promise<CreateOrderResponse> => 
-    {
-        try 
-        {
-            const token = authService.getToken();
-            if (!token) 
-            {
-                throw new Error('Token not found');
-            }
-
-            const response = await axios.post<CreateOrderResponse>(`${URL}/api/Order/create`, orderData, 
-            {
-                headers: 
-                {
-                    Authorization: `Bearer ${token}`,
-                },
-            });
-            return response.data;
-        } 
-        catch (error) 
-        {
-            if (axios.isAxiosError(error) && error.response) 
-            {
-                // Handle HTTP error status code
-                throw new Error(`Error creating order: ${error.response.status}`);
-            } 
-            else 
-            {
-                // Handle unexpected errors
-                throw new Error('Error creating order');
-            }
+const api = () => {
+    const createOrder = async (orderData: IOrderData): Promise<ICreateOrderResponse> => {
+        const token = authService.getToken();
+        if (!token) {
+            throw new Error('Token not found');
         }
+
+        const response = await axios.post<ICreateOrderResponse>(`${ORDER_SERVICE_URL}/api/Order/create`, orderData, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data;
+    };
+
+    const getAvailableOrders = async (): Promise<IOrderToClaimViewModel[]> => {
+        const token = authService.getToken();
+        if (!token) {
+            throw new Error('Token not found');
+        }
+
+        const response = await axios.get<IOrderToClaimViewModel[]>(`${ORDER_SERVICE_URL}/api/Order/ready-for-delivery`, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
+        return response.data;
+    };
+
+    const claimOrder = async (orderId: number, courierId: number, deliveryAddress: string): Promise<void> => {
+        const token = authService.getToken();
+        if (!token) {
+            throw new Error('Token not found');
+        }
+
+        await axios.post(`${COURIER_SERVICE_URL}/api/Courier/claim-order`, {
+            orderId,
+            courierId,
+            deliveryAddress
+        }, {
+            headers: {
+                Authorization: `Bearer ${token}`,
+            },
+        });
     };
 
     return {
-        createOrder
+        createOrder,
+        getAvailableOrders,
+        claimOrder,
     };
 };
 

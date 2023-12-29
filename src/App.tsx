@@ -5,6 +5,8 @@ import RestaurantView from './views/RestaurantView';
 import MenuView from './views/MenuView';
 import Login from "./views/Login";
 import authService from './services/authService'; // Assuming authService has a logout method
+import CourierDashboard from './views/CourierDashboard';
+
 
 const App: React.FC = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,6 +27,7 @@ const App: React.FC = () => {
         <Route path="/" element={<RestaurantView />} />
         <Route path="/login" element={<Login onLogin={handleLogin} />} />
         <Route path="/menu/:restaurantId" element={<MenuView />} />
+        <Route path="/courier" element={<CourierDashboard />} />
       </Routes>
     </BrowserRouter>
   );

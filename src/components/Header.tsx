@@ -39,6 +39,7 @@ const Header: React.FC<HeaderProps> = ({ isLoggedIn: propIsLoggedIn, onLogout })
                 <ul className='header'>
                     <Logo />
                     <li><NavLink to='/'>Restaurants</NavLink></li>
+                    <li><NavLink to='/courier'>Courier Dashboard</NavLink></li>
                     {!isLoggedIn && <li className="align-right login-nav"><NavLink to="/login">Log in</NavLink></li>}
                     {isLoggedIn &&
                         <li>
