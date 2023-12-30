@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const URL = 'http://restaurant-web:8081';
+const URL = 'http://gateway:8000';
 
 // Define the structure of a restaurant.
 interface Restaurant {

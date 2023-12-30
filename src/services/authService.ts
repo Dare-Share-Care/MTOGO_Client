@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const URL = 'http://orders-web:8085';
+const URL = 'http://gateway:8000';
 
 const api = () => {
     const login = async (email: string, password: string): Promise<string> => {
