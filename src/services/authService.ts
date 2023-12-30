@@ -1,42 +1,34 @@
 import axios from 'axios';
 
-const URL = 'http://localhost:5067';
+const URL = 'http://orders-web:8085';
 
-const api = () => 
-{
-    const login = async (email: string, password: string): Promise<string> => 
-    {
-        try 
-        {
-            const response = await axios.post<string>(`${URL}/api/Auth/login`, 
-            {
-                email,
-                password,
-            });
+const api = () => {
+    const login = async (email: string, password: string): Promise<string> => {
+        try {
+            const response = await axios.post<string>(`${URL}/api/Auth/login`,
+                {
+                    email,
+                    password,
+                });
             const token = response.data;
-            if (token) 
-            {
+            if (token) {
                 localStorage.setItem('token', token);
                 return token;
-            } 
-            else 
-            {
+            }
+            else {
                 throw new Error('Invalid token received');
             }
-        } 
-        catch (error) 
-        {
+        }
+        catch (error) {
             throw new Error('Login failed');
         }
     };
 
-    const logout = (): void => 
-    {
+    const logout = (): void => {
         localStorage.removeItem('token');
     };
 
-    const getToken = (): string | null => 
-    {
+    const getToken = (): string | null => {
         return localStorage.getItem('token');
     };
 

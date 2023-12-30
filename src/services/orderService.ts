@@ -4,8 +4,8 @@ import { IOrderData } from '../interfaces/IOrderData';
 import { ICreateOrderResponse } from '../interfaces/ICreateOrderResponse';
 import { IOrderToClaimViewModel } from '../interfaces/IOrderToClaimViewModel';
 
-const ORDER_SERVICE_URL = 'http://localhost:5157'; // Orders.Web
-const COURIER_SERVICE_URL = 'http://localhost:5041'; // Courier.Web
+const ORDER_SERVICE_URL = 'http://orders-web:8085'; // Orders.Web
+const COURIER_SERVICE_URL = 'http://delivery:8084'; // Courier.Web
 
 const api = () => {
     const createOrder = async (orderData: IOrderData): Promise<ICreateOrderResponse> => {

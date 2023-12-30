@@ -2,7 +2,7 @@ import axios from "axios";
 import authService from "./authService";
 import { IDelivery } from '../interfaces/IDelivery';
 
-const URL = 'http://localhost:5041'; // Replace with your actual backend port
+const URL = 'http://delivery:8084'; // Replace with your actual backend port
 
 const api = () => {
     const getAllDeliveries = async (): Promise<IDelivery[]> => {
